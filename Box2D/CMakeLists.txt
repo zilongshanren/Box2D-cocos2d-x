@@ -31,14 +31,14 @@ include_directories(
 
 file(GLOB_RECURSE box2d_source_files "${CMAKE_CURRENT_SOURCE_DIR}/Box2D/*.cpp")
 
+if(LINUX32)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m32")
+elseif(LINUX64)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m64")
+endif(LINUX32)
 
 add_library(Box2D STATIC ${box2d_source_files})
 
-if ( CMAKE_SIZEOF_VOID_P EQUAL 8 )
-    set(FMOD_LIB "fmodex64")
-else()
-    set(FMOD_LIB "fmodex")
-endif()
 
 # target_link_libraries(cocos2d jpeg webp tiff freetype fontconfig png pthread glfw GLEW GL X11 rt z ${FMOD_LIB} curl)
 
