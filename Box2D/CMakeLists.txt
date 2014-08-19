@@ -33,7 +33,7 @@ file(GLOB_RECURSE box2d_source_files "${CMAKE_CURRENT_SOURCE_DIR}/Box2D/*.cpp")
 
 if(LINUX32)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m32")
-elseif(LINUX64)
+else()
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m64")
 endif(LINUX32)
 
