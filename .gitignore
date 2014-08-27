@@ -3,3 +3,11 @@
 *.o
 *.o.d
 /Box2D/Android/obj/
+/Box2D/Box2D.xcodeproj/project.xcworkspace/xcuserdata/guanghui.xcuserdatad/UserInterfaceState.xcuserstate
+/Box2D/CMakeCache.txt
+/Box2D/CMakeFiles/
+/Box2D/CMakeScripts/
+/Box2D/Project.build/
+/Box2D/Project.xcodeproj/
+/Box2D/cmake_install.cmake
+/Box2D/lib/
