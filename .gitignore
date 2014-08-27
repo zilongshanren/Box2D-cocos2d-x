@@ -1,3 +1,4 @@
 Box2D/Android/obj/
 /Box2D/libBox2D.a
 /Box2D/build/
+*.o
