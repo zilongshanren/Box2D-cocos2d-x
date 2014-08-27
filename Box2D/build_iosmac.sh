@@ -1,11 +1,11 @@
 #!/bin/sh
 
 LIBNAME="Box2D"
+IOS_SDK_VERSION="7.1"
 
 # use ios-cmake to generate ios project
 rm -rf prebuilt
 rm -rf build.ios
-rm lib"${LIBNAME}".a
 mkdir build.ios
 cd build.ios
 
@@ -14,7 +14,7 @@ cmake -DCMAKE_TOOLCHAIN_FILE=../toolchain/iOS_32.cmake  -DCMAKE_IOS_DEVELOPER_RO
 
 
 # build iphone simulator
-xcodebuild -project Project.xcodeproj -alltargets -sdk iphonesimulator7.1 -configuration Release
+xcodebuild -project Project.xcodeproj -alltargets -sdk iphonesimulator"${IOS_SDK_VERSION}" -configuration Release
 
 cd ..
 mkdir -p lib/i386
@@ -22,7 +22,7 @@ cp build.ios/lib/Release/lib"${LIBNAME}".a lib/i386
 
 
 # build iphone os, this is a fat lib
-xcodebuild -project build.ios/Project.xcodeproj -alltargets -sdk iphoneos7.1 -configuration Release
+xcodebuild -project build.ios/Project.xcodeproj -alltargets -sdk iphoneos"${IOS_SDK_VERSION}" -configuration Release
 
 mkdir -p lib/armv7
 cp build.ios/lib/Release/lib"${LIBNAME}".a lib/armv7
@@ -36,7 +36,7 @@ cmake -DCMAKE_TOOLCHAIN_FILE=../toolchain/iOS_64.cmake  -DCMAKE_IOS_DEVELOPER_RO
 
 
 # build iphone simulator 64 bit
-xcodebuild -project Project.xcodeproj -alltargets -sdk iphonesimulator7.1 -configuration Release
+xcodebuild -project Project.xcodeproj -alltargets -sdk iphonesimulator"${IOS_SDK_VERSION}" -configuration Release
 
 cd ..
 mkdir -p lib/x86_64
@@ -44,7 +44,7 @@ cp build.ios/lib/Release/lib"${LIBNAME}".a lib/x86_64
 
 
 # build iphone os, this is a fat lib
-xcodebuild -project build.ios/Project.xcodeproj -alltargets -sdk iphoneos7.1 -configuration Release  
+xcodebuild -project build.ios/Project.xcodeproj -alltargets -sdk iphoneos"${IOS_SDK_VERSION}" -configuration Release  
 
 mkdir -p lib/arm64
 cp build.ios/lib/Release/lib"${LIBNAME}".a lib/arm64
