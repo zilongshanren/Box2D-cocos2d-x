@@ -11,3 +11,10 @@
 /Box2D/Project.xcodeproj/
 /Box2D/cmake_install.cmake
 /Box2D/lib/
+/Box2D/Box2D.xcodeproj/project.pbxproj
+/Box2D/Box2D.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+/Box2D/Box2D.xcodeproj/xcuserdata/guanghui.xcuserdatad/xcschemes/Box2D.xcscheme
+/Box2D/Box2D.xcodeproj/xcuserdata/guanghui.xcuserdatad/xcschemes/xcschememanagement.plist
+/Box2D/Box2D/Box2D-Prefix.pch
+/Box2D/Makefile
+/Box2D/build.sh
