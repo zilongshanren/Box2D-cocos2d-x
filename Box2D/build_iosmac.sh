@@ -1,13 +1,11 @@
 #!/bin/sh
 
-
-# DEVELOPER=`xcode-select --print-path`
-# ios_sdk_root="${DEVELOPER}/Platforms/iPhoneOS.platform/Developer"
-# export CMAKE_IOS_SDK_ROOT=${ios_sdk_root}
+LIBNAME="Box2D"
 
 # use ios-cmake to generate ios project
+rm -rf prebuilt
 rm -rf build.ios
-rm libBox2D.a
+rm lib"${LIBNAME}".a
 mkdir build.ios
 cd build.ios
 
@@ -20,14 +18,14 @@ xcodebuild -project Project.xcodeproj -alltargets -sdk iphonesimulator7.1 -confi
 
 cd ..
 mkdir -p lib/i386
-cp build.ios/lib/Release/libbox2d.a lib/i386
+cp build.ios/lib/Release/lib"${LIBNAME}".a lib/i386
 
 
 # build iphone os, this is a fat lib
 xcodebuild -project build.ios/Project.xcodeproj -alltargets -sdk iphoneos7.1 -configuration Release
 
 mkdir -p lib/armv7
-cp build.ios/lib/Release/libbox2d.a lib/armv7
+cp build.ios/lib/Release/lib"${LIBNAME}".a lib/armv7
 
 rm -rf build.ios
 mkdir build.ios
@@ -42,27 +40,36 @@ xcodebuild -project Project.xcodeproj -alltargets -sdk iphonesimulator7.1 -confi
 
 cd ..
 mkdir -p lib/x86_64
-cp build.ios/lib/Release/libbox2d.a lib/x86_64
+cp build.ios/lib/Release/lib"${LIBNAME}".a lib/x86_64
 
 
 # build iphone os, this is a fat lib
 xcodebuild -project build.ios/Project.xcodeproj -alltargets -sdk iphoneos7.1 -configuration Release  
 
 mkdir -p lib/arm64
-cp build.ios/lib/Release/libbox2d.a lib/arm64
+cp build.ios/lib/Release/lib"${LIBNAME}".a lib/arm64
 
 # create the fat package
-lipo lib/i386/libbox2d.a lib/x86_64/libbox2d.a lib/armv7/libbox2d.a lib/arm64/libbox2d.a -create -output libBox2D.a
-lipo -info libBox2D.a
+lipo lib/i386/lib"${LIBNAME}".a lib/x86_64/lib"${LIBNAME}".a lib/armv7/lib"${LIBNAME}".a lib/arm64/lib"${LIBNAME}".a -create -output lib"${LIBNAME}".a
+lipo -info lib"${LIBNAME}".a
 
 mkdir -p prebuilt/ios
-mv libBox2D.a prebuilt/ios
+mv lib"${LIBNAME}".a prebuilt/ios
 rm -rf lib
 rm -rf build.ios
 
 echo "finished build ios fat library"
 
+rm -rf build.mac
+mkdir build.mac
+cd build.mac
+cmake -G Xcode ..
 
-# xcodebuild -project Project.xcodeproj -alltargets  -arch x86_64 -configuration Release
+xcodebuild -project Project.xcodeproj -alltargets  -arch x86_64 -configuration Release
+
+cd ..
+mkdir -p prebuilt/mac
+cp build.mac/lib/Release/lib"${LIBNAME}".a prebuilt/mac/lib"${LIBNAME}".a
+rm -rf build.mac
 
 
