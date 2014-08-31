@@ -34,18 +34,20 @@ file(GLOB_RECURSE box2d_source_files "${CMAKE_CURRENT_SOURCE_DIR}/Box2D/*.cpp")
 
 if(LINUX32)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m32")
-else()
+elseif(LINUX64)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m64")
 endif(LINUX32)
 
 add_library(Box2D STATIC ${box2d_source_files})
 
 
-# target_link_libraries(cocos2d jpeg webp tiff freetype fontconfig png pthread glfw GLEW GL X11 rt z ${FMOD_LIB} curl)
 
+if(ANDROID)
+message(STATUS "android doesn't need arCHIVE_OUTPUT_DIRECTORY")
+else()
 set_target_properties(Box2D
     PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
 )
-
+endif()
