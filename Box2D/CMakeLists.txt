@@ -43,7 +43,7 @@ add_library(Box2D STATIC ${box2d_source_files})
 
 
 if(ANDROID)
-message(STATUS "android doesn't need arCHIVE_OUTPUT_DIRECTORY")
+message(STATUS "android doesn't need ARCHIVE_OUTPUT_DIRECTORY")
 else()
 set_target_properties(Box2D
     PROPERTIES
