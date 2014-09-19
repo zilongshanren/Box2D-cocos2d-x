@@ -20,8 +20,3 @@
 /Box2D/build.sh
 /Box2D/android-toolchain-x86/
 /Box2D/android-toolchain/
-/Box2D/prebuilt/ios/
-/Box2D/prebuilt/mac/
-/Box2D/prebuilt/android/armeabi-v7a/
-/Box2D/prebuilt/android/armeabi/
-/Box2D/prebuilt/android/x86/
