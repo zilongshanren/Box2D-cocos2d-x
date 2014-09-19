@@ -12,6 +12,7 @@ sudo apt-get install g++-multilib
 
 rm -rf prebuilt/linux
 
+mkdir build.linux
 cmake -DCMAKE_BUILD_TYPE=Release -DLINUX32=1 .
 
 make
