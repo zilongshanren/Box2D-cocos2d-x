@@ -10,22 +10,28 @@ sudo apt-get install lib32stdc++6
 
 sudo apt-get install g++-multilib
 
+LIBNAME="box2d"
+
 rm -rf prebuilt/linux
 
 mkdir build.linux
-cmake -DCMAKE_BUILD_TYPE=Release -DLINUX32=1 .
+cd build.linux
+cmake -DCMAKE_BUILD_TYPE=Release -DLINUX32=1 ..
 
 make
 
+cd ..
 mkdir -p prebuilt/linux/32/
-cp lib/libbox2d.a prebuilt/linux/32/
-rm -rf lib
+cp build.linux/lib/lib"${LIBNAME}".a prebuilt/linux/32/
+rm -rf build.linux
 
-cmake -DCMAKE_BUILD_TYPE=Release -DLINUX64=1 .
+mkdir build.linux
+cd build.linux
+cmake -DCMAKE_BUILD_TYPE=Release -DLINUX64=1 ..
 
 make
 
-
+cd ..
 mkdir -p prebuilt/linux/64/
-cp lib/libbox2d.a prebuilt/linux/64/
-rm -rf lib
+cp build.linux/lib/lib"${LIBNAME}".a prebuilt/linux/64/
+rm -rf build.linux
