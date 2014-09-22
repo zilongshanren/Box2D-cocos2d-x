@@ -1,5 +1,6 @@
 #!/bin/sh
 
+
 export ANDROID_NDK=$HOME/AndroidDev/android-ndk-r9d/
 ANDROID_API_LEVEL=19
 
@@ -47,3 +48,5 @@ make
 cd ..
 # ndk-depends libs/x86/libChipmunk.a 
 rm -rf build.android/ 
+
+mv libs prebuilt/android/
