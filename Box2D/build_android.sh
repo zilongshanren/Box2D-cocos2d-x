@@ -49,4 +49,5 @@ cd ..
 # ndk-depends libs/x86/libChipmunk.a 
 rm -rf build.android/ 
 
-mv libs prebuilt/android/
+mv libs/* prebuilt/android/
+rm -rf libs

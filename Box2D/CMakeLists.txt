@@ -27,7 +27,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 include_directories(
-  ${CMAKE_CURRENT_SOURCE_DIR}/Box2D
+  ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 file(GLOB_RECURSE box2d_source_files "${CMAKE_CURRENT_SOURCE_DIR}/Box2D/*.cpp")
