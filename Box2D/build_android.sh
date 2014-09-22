@@ -1,7 +1,8 @@
 #!/bin/sh
 
 
-export ANDROID_NDK=$HOME/AndroidDev/android-ndk-r9d/
+# export ANDROID_NDK=$HOME/AndroidDev/android-ndk-r9d/
+source ~/.bashrc 
 ANDROID_API_LEVEL=19
 
 # generate the android toolchain of arm

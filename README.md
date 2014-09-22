@@ -3,6 +3,9 @@
   is [here](http://box2d.org/downloads/)
 - the version of Box2D is 2.3.0
 
+## Prerequisite
+
+You must setup ANDROID_NDK environment in your ~/.bashrc file to point to your NDK directory.
 
 ##Build
 At first:
