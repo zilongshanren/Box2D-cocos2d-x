@@ -18,7 +18,7 @@ rm -rf build.android/
 mkdir build.android
 cd build.android
 
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=../android.toolchain.cmake -DANDROID_ABI="armeabi" -DANDROID=1 ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=../toolchain/android.toolchain.cmake -DANDROID_ABI="armeabi" -DANDROID=1 ..
 
 make 
 
@@ -28,7 +28,7 @@ mkdir build.android/
 cd build.android/ 
 
 #build for armeabi-v7a
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=../android.toolchain.cmake -DANDROID=1 ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=../toolchain/android.toolchain.cmake -DANDROID=1 ..
 make
 
 cd ..
@@ -40,7 +40,7 @@ cd build.android/
 export PATH=$PATH:./android-toolchain-x86/bin
 export PATH=$PATH:$ANDROID_NDK/build/tools/
 export ANDROID_STANDALONE_TOOLCHAIN=./android-toolchain-x86
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=../android.toolchain.cmake -DANDROID_ABI="x86" -DANDROID=1 ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=../toolchain/android.toolchain.cmake -DANDROID_ABI="x86" -DANDROID=1 ..
 
 make
 

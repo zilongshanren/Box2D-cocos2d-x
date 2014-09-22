@@ -5,6 +5,11 @@
 
 
 ##Build
+At first:
+
+```cpp
+cd Box2D
+```
 
 ###Build for Android
 ```cpp
