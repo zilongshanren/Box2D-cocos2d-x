@@ -38,16 +38,19 @@ elseif(LINUX64)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -m64")
 endif(LINUX32)
 
-add_library(Box2D STATIC ${box2d_source_files})
+add_library(box2d STATIC ${box2d_source_files})
 
 
 
 if(ANDROID)
 message(STATUS "android doesn't need ARCHIVE_OUTPUT_DIRECTORY")
 else()
-set_target_properties(Box2D
+set_target_properties(box2d
     PROPERTIES
     ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
 )
 endif()
+
+# file(GLOB_RECURSE box2d_header_files "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+# install(FILES ${box2d_header_files} DESTINATION "${CMAKE_CURRENT_SOURCE_DIR}/prebuilt/include")

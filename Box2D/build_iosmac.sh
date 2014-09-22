@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LIBNAME="Box2D"
+LIBNAME="box2d"
 IOS_SDK_VERSION="7.1"
 
 # use ios-cmake to generate ios project

@@ -18,3 +18,5 @@
 /Box2D/Box2D/Box2D-Prefix.pch
 /Box2D/Makefile
 /Box2D/build.sh
+/Box2D/android-toolchain-x86/
+/Box2D/android-toolchain/
